@@ -1,0 +1,11 @@
+Windows 和 Linux 的命令各有千秋，有些相同有些差异，我很烦躁，为什么不能统一呢？或者想办法兼容一下其它系统并不冲突的命令呢？哪怕是提示一下也好啊。
+这里真的要夸一下 PowerShell 7.0，支持部分原生 Linux shell 命令真的是太赞了。
+在这之前，我在 Windows 下如果不想使用（或者没有）Cygwin、Git Bash 这类支持 Linux shell 的软件时，是写 bat 批处理去避免自己在 cmd 窗口习惯性敲入 ll（只是举例子，另外 ll 命令明显比输入 dir 要方便得多）命令而报错的情况。
+很长一段时间后，我觉得还是需要尝试着做个野心大一点的东西。于是有了这个 LindowShell 、、、
+
+
+# Windows 下添加模拟 Linux shell命令的 bat 批处理文件，直接放入 %SystemRoot%\system32 目录下，或者将文件所在目录加入环境变量的 Path 参数中，同时注意系统变量 %PATHEXT% 需要确认有 .BAT; 值。
+
+# Linux 下，将 .bashrc 的内容添加到系统 /root/.bashrc 文件的尾部并保存，执行 source /root/.bashrc 生效。Mac 同理。
+
+# 在不影响系统原有命令情况下的新加命令将直接加入，如果跟原有命令起冲突，将加入系统前缀（ win_   mac_   linux_ ）
